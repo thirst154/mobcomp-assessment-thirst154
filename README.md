@@ -11,3 +11,23 @@ You can modify this file and the starter project as you see fit.
 You must **NOT** delete or modify the following files unless instructed by your tutor:
 - .gitignore
 - .gitattributes
+
+# Tom's App
+
+## Plan
+Build a shopping list theme app. Allows users to add things to a shopping list...
+
+## Todo
+
+- [ ] Flyout Menu
+  - [x] Test Items w/ Icons
+  - [X] Header
+  - [ ] Footer
+- [ ] Main Page
+  - [ ] Header 
+  - [ ] User input for Items
+  - [ ] Item check off tick box
+- [ ] Allow users to create new lists
+- [ ] Add lists to flyout
+- [ ] Add new font (Barlow?)
+- [ ] Decide some colors and styles
