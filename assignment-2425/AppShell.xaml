@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:assignment_2425"
+    xmlns:view="clr-namespace:assignment_2425.View"
     Title="assignment_2425"
     FlyoutBehavior="Flyout"
     >
@@ -32,7 +33,7 @@
         <Tab Title="Home">
             <ShellContent
                 Title="Home"
-                ContentTemplate="{DataTemplate local:MainPage}"
+                ContentTemplate="{DataTemplate view:MainPage}"
                 Route="MainPage"
                 />
         </Tab>
@@ -44,7 +45,7 @@
         <Tab Title="Test">
             <ShellContent
                 Title="Testing"
-                ContentTemplate="{DataTemplate local:TestPage}"
+                ContentTemplate="{DataTemplate view:TestPage}"
                 Route="TestPage" />
 
         </Tab>
@@ -52,7 +53,7 @@
     <FlyoutItem Title="About" Icon="icon_about.png">
         <ShellContent
     Title="About"
-    ContentTemplate="{DataTemplate local:AboutPage}"/>
+    ContentTemplate="{DataTemplate view:AboutPage}"/>
     </FlyoutItem>
 
     

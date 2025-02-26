@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:assignment_2425.Model"
+             x:Class="assignment_2425.View.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+          
+            <Label
+                Text="Tom's App Testing"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <HorizontalStackLayout VerticalOptions="Center">
+                <CheckBox/>
+                <Label Text="Testing"/>
+            </HorizontalStackLayout>
+
+            <CollectionView>
+                <CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type model:Todo}">
+                        <model:Todo
+                            Title="Testing 1"
+                            Status="{False}"/>
+                    </x:Array>
+                </CollectionView.ItemsSource>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
