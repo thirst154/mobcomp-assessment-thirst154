@@ -8,28 +8,39 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-          
+
             <Label
-                Text="Tom's App Testing"
+                Text="Main page"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 
-            <HorizontalStackLayout VerticalOptions="Center">
-                <CheckBox/>
-                <Label Text="Testing"/>
-            </HorizontalStackLayout>
 
-            <CollectionView>
-                <CollectionView.ItemsSource>
-                    <x:Array Type="{x:Type model:Todo}">
-                        <model:Todo
-                            Title="Testing 1"
-                            Status="False"/>
-                    </x:Array>
-                </CollectionView.ItemsSource>
+
+            <CollectionView ItemsSource="{Binding Todos}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Todo">
+
+                        <Frame BorderColor="{StaticResource Gray300}">
+                            <HorizontalStackLayout>
+                            
+                                <CheckBox IsChecked="{Binding Status}" VerticalOptions="Center"/>
+                                <Label 
+                                    Text="{Binding Title}" 
+                                    VerticalOptions="Center">
+                                        <Label.Triggers>
+                                            <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="True">
+                                                <Setter Property="TextDecorations" Value="Strikethrough"/>
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                </Label>
+                            
+                        </HorizontalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
             </CollectionView>
-            
-            
+
+
 
         </VerticalStackLayout>
     </ScrollView>
