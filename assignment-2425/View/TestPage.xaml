@@ -5,7 +5,7 @@
              Title="TestPage">
     <VerticalStackLayout>
         <Label 
-            Text="Testing Page"
+            Text="Testing"
             Style="{StaticResource Headline}"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
