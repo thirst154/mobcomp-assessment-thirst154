@@ -24,9 +24,9 @@ Build a shopping list theme app. Allows users to add things to a shopping list..
   - [X] Header
   - [ ] Footer
 - [ ] Main Page
-  - [ ] Header 
+  - [X] Header 
   - [ ] User input for Items
-  - [ ] Item check off tick box
+  - [X] Item check off tick box
 - [ ] Allow users to create new lists
 - [ ] Add lists to flyout
 - [ ] Add new font (Barlow?)

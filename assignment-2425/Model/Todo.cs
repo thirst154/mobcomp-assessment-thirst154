@@ -1,11 +1,23 @@
-﻿namespace assignment_2425.Model;
+﻿using System.ComponentModel;
 
-public class Todo { 
-    //public string Id { get; set; }
-    public string Title { get; set; }
-    //public string Description { get; set; }
-    //public DateTime CreatedDate { get; set; }
-    //public DateTime UpdatedDate { get; set; }
-    public bool Status { get; set; }
+namespace assignment_2425.Model;
 
+public class Todo : INotifyPropertyChanged
+{
+    private bool isCompleted;
+    public string Text { get; set; }
+
+    public bool IsCompleted {
+        get => isCompleted;
+        set {
+            if (isCompleted != value) { 
+                isCompleted = value;
+                OnPropertyChanged(nameof(IsCompleted));
+            }
+        }
+    }
+
+    public event PropertyChangedEventHandler PropertyChanged;
+    protected void OnPropertyChanged(string name) =>
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 }
