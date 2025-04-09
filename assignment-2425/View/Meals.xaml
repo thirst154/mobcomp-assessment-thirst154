@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:assignment_2425.ViewModel"
+             x:Class="assignment_2425.View.Meals"
+             x:Name="Root"
+             Title="Meals">
+
+    <ContentPage.BindingContext>
+        <viewmodels:MealsViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <Style x:Key="TodoLabelStyle" TargetType="Label">
+            <Style.Triggers>
+                <DataTrigger TargetType="Label"
+                         Binding="{Binding IsCompleted}"
+                         Value="True">
+                    <Setter Property="TextDecorations" Value="Strikethrough" />
+                    <Setter Property="TextColor" Value="Gray" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </ContentPage.Resources>
+
+
+    <VerticalStackLayout>
+
+        <CollectionView ItemsSource="{Binding Meals}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <SwipeView>
+                        
+                        
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem
+                                    Text="Delete"
+                                    BackgroundColor="Red"
+                                    Command="{Binding BindingContext.DeleteMealCommand, Source={x:Reference Root}}"
+                                    CommandParameter="{Binding .}"/>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+
+                        <HorizontalStackLayout>
+                            <CheckBox IsChecked="{Binding IsCompleted}"/>
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Name}" Style="{StaticResource TodoLabelStyle}" FontSize="Large" FontAttributes="Bold"/>
+                                <Label Text="{Binding Description}"  Style="{StaticResource TodoLabelStyle}"/>
+                            </VerticalStackLayout>
+                            
+                        </HorizontalStackLayout>
+                    </SwipeView>
+                    
+               
+                    
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <StackLayout Padding="10">
+            <Entry Placeholder="New Meal..." Text="{Binding NewMealText}" />
+            <Entry Placeholder="Description" Text="{Binding NewMealDesc}" />
+            <Button Text="Add" Command="{Binding AddMealCommand}" />
+        </StackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>

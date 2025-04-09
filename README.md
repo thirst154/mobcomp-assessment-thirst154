@@ -15,7 +15,7 @@ You must **NOT** delete or modify the following files unless instructed by your 
 # Tom's App
 
 ## Plan
-Build a shopping list theme app. Allows users to add things to a shopping list...
+A Meal Plan App. Two pages One allows users to add new meals to a plan. Other page is a shopping list of ingredients needed for the meals
 
 ## Todo
 
@@ -25,9 +25,19 @@ Build a shopping list theme app. Allows users to add things to a shopping list..
   - [ ] Footer
 - [ ] Main Page
   - [X] Header 
-  - [ ] User input for Items
+  - [X] User input for Items
   - [X] Item check off tick box
-- [ ] Allow users to create new lists
-- [ ] Add lists to flyout
+  - [X] Allow users to add new todos
+  - [X] allow users to remove items
+  - [ ] add warning when users try to remove items
+  - [ ] Style Page
 - [ ] Add new font (Barlow?)
 - [ ] Decide some colors and styles
+- [X] Add Meals Page
+  - [X] Allow users to add meals
+  - [ ] Allow users to edit meals
+  - [X] Remove meals
+- [ ] Add Shopping page
+  - [ ] Grab meals from page and display at top
+  - [ ] Allow users to add ingredients and tag with meal
+  - [ ] When meal is removed remove ingredients

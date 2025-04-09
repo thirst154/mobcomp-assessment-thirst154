@@ -28,24 +28,24 @@
 
 
     <FlyoutItem 
-        Title="Home"
+        Title="Meals"
         Icon="icon_home.png">
-        <Tab Title="Home">
+        <Tab Title="Meals">
             <ShellContent
-                Title="Home"
-                ContentTemplate="{DataTemplate view:MainPage}"
+                Title="Meals"
+                ContentTemplate="{DataTemplate view:Meals}"
                 Route="MainPage"
                 />
         </Tab>
     </FlyoutItem>
     <FlyoutItem 
-    Title="Test"
+    Title="Shopping"
     Icon="icon_home.png">
 
-        <Tab Title="Test">
+        <Tab Title="Shopping">
             <ShellContent
-                Title="Testing"
-                ContentTemplate="{DataTemplate view:TestPage}"
+                Title="Shopping"
+                ContentTemplate="{DataTemplate view:Shopping}"
                 Route="TestPage" />
 
         </Tab>
