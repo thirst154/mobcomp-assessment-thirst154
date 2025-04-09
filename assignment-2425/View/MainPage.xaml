@@ -1,7 +1,8 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:assignment_2425.ViewModel"
-             x:Class="assignment_2425.View.MainPage">
+             x:Class="assignment_2425.View.MainPage"
+             x:Name="Root">
 
     <ContentPage.BindingContext>
         <viewmodels:TodoViewModel />
@@ -20,14 +21,39 @@
         </Style>
     </ContentPage.Resources>
 
-    <CollectionView ItemsSource="{Binding Todos}">
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <HorizontalStackLayout Padding="10">
-                    <CheckBox IsChecked="{Binding IsCompleted}" />
-                    <Label Text="{Binding Text}" Style="{StaticResource TodoLabelStyle}" />
-                </HorizontalStackLayout>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+    
+    <VerticalStackLayout>
+        
+        
+        <CollectionView ItemsSource="{Binding Todos}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Delete"
+                               BackgroundColor="Red"
+                               Command="{Binding BindingContext.DeleteTodoCommand, Source={x:Reference Root}}"
+                               CommandParameter="{Binding .}" />
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+
+                        <HorizontalStackLayout Padding="10">
+                            <CheckBox IsChecked="{Binding IsCompleted}" />
+                            <Label Text="{Binding Text}" Style="{StaticResource TodoLabelStyle}" />
+                        </HorizontalStackLayout>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
+        
+        <VerticalStackLayout Padding="10" HorizontalOptions="End">
+            <Entry Placeholder="New Todo..."
+           Text="{Binding NewTodoText}" />
+            <Button Text="Add"
+            Command="{Binding AddTodoCommand}" />
+        </VerticalStackLayout>
+
+    </VerticalStackLayout>
 </ContentPage>
