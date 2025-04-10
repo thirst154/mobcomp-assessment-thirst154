@@ -13,4 +13,3 @@ public class IngredientRepo : BaseRepository<Ingredient>
 
     // Add Ingredient-specific methods here
 }
-

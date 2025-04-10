@@ -33,12 +33,24 @@
 
                         <SwipeView.RightItems>
                             <SwipeItems>
+
+                                <SwipeItem
+                                    Text="Edit"
+                                    BackgroundColor="Orange"
+                                    Command="{Binding BindingContext.EditCommand, Source={x:Reference Root}}"
+                                    CommandParameter="{Binding .}"/>
+
+
                                 <SwipeItem
                                 Text="Delete"
                                 BackgroundColor="Red"
                                 Command="{Binding BindingContext.DeleteCommand, Source={x:Reference Root}}"
                                 CommandParameter="{Binding .}"/>
+                                
+                                
                             </SwipeItems>
+                            
+                            
                         </SwipeView.RightItems>
 
                         <HorizontalStackLayout>
@@ -60,6 +72,9 @@
         <StackLayout Padding="10">
             <Entry Placeholder="New Ingredient..." Text="{Binding NewIngText}" />
             <Entry Placeholder="Description" Text="{Binding NewIngDesc}" />
+            <Picker Title="Select A Meal"
+                    ItemsSource="{Binding Options}"
+                    Focused="OnPickerFocused"/>
             <Button Text="Add" Command="{Binding AddCommand}" />
         </StackLayout>
 

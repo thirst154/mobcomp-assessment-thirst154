@@ -16,5 +16,7 @@ public class Ingredient : Todo
     public string Name { get; set; }
     [MaxLength(200)]
     public string Description { get; set; }
+    [Column("MealId")]
+    public int MealId { get; set; }
 
 }

@@ -22,7 +22,14 @@ public partial class MealsViewModel : BaseCrudViewModel<Meal>
         set => SetProperty(ref newMealDesc, value);
     }
 
-    public MealsViewModel() : base(new MealRepo()) { }
+    
+
+
+    public ICommand EditCommand { get; }
+    public MealsViewModel() : base(new MealRepo()) {
+
+        EditCommand = new Command<Meal>(EditItem);
+    }
 
     protected override Meal CreateNewItem()
     {
@@ -40,4 +47,23 @@ public partial class MealsViewModel : BaseCrudViewModel<Meal>
         return meal;
 
     }
+
+    private async void EditItem(Meal item)
+    {
+        var newName = await Application.Current.MainPage.DisplayPromptAsync("Edit Name", "Enter new name:", initialValue: item.Name);
+        var newDesc = await Application.Current.MainPage.DisplayPromptAsync("Edit Desciption", "Enter new description:", initialValue: item.Description);
+
+        if (!string.IsNullOrWhiteSpace(newName))
+        {
+            item.Name = newName;
+            item.Description = newDesc;
+
+            repo.AddOrUpdate(item);
+            Refresh();
+        }
+    }
+
+    
+
+    
 }

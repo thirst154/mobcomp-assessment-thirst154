@@ -17,7 +17,6 @@ public abstract partial class BaseCrudViewModel<T> : ObservableObject where T : 
 
     public ICommand AddCommand { get; }
     public ICommand DeleteCommand { get; }
-    public ICommand EditCommand { get; }
 
     public BaseCrudViewModel(BaseRepository<T> repository) { 
         repo = repository;
@@ -25,7 +24,6 @@ public abstract partial class BaseCrudViewModel<T> : ObservableObject where T : 
 
         AddCommand = new Command(AddItem);
         DeleteCommand = new Command<T>(DeleteItem);
-        EditCommand = new Command<T>(EditItem);
     }
 
     protected abstract T CreateNewItem();
@@ -40,25 +38,26 @@ public abstract partial class BaseCrudViewModel<T> : ObservableObject where T : 
         }
     }
 
-    protected virtual void DeleteItem(T item)
+    
+
+
+    protected virtual async void DeleteItem(T item)
     {
         var idProp = item?.GetType().GetProperty("Id");
         if (idProp != null && item != null)
         {
-            int id = (int)idProp.GetValue(item);
-            repo.Delete(id);
-            Refresh();
+            bool confirmDelete = await Application.Current.MainPage.DisplayAlert("Confirm Delete", "Are you sure you want to delete this item?", "Yes", "No");
+            if (confirmDelete)
+            {
+                //int id = (int)idProp.GetValue(item);
+                repo.Delete(item);
+                Refresh();
+            }
         }
     }
 
-    protected virtual void EditItem(T item)
-    {
-        if (item != null)
-        { 
-            repo.AddOrUpdate(item);
-            Refresh();
-        }
-    }
+
+
 
     protected void Refresh() {
         Items.Clear();

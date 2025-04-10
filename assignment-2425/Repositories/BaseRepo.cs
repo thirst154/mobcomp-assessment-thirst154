@@ -57,6 +57,21 @@ public abstract class BaseRepository<T> where T : new()
         return default;
     }
 
+    public T Get(string name)
+    {
+        try
+        {
+
+            return connection.Table<T>().FirstOrDefault(x => (string)x.GetType().GetProperty("Name").GetValue(x) == name);
+        }
+        catch (Exception ex) {
+            StatusMessage = $"Error: {ex.Message}";
+        }
+
+        return default;
+    
+    }
+
     public void AddOrUpdate(T item)
     {
         try
@@ -77,6 +92,18 @@ public abstract class BaseRepository<T> where T : new()
         try
         {
             var item = Get(id);
+            connection.Delete(item);
+        }
+        catch (Exception ex)
+        {
+            StatusMessage = $"Error: {ex.Message}";
+        }
+    }
+
+    public void Delete(T item)
+    {
+        try
+        {
             connection.Delete(item);
         }
         catch (Exception ex)

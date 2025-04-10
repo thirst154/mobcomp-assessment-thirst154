@@ -31,10 +31,18 @@
                 <DataTemplate>
 
                     <SwipeView>
-                        
-                        
+
+
                         <SwipeView.RightItems>
                             <SwipeItems>
+
+                                <SwipeItem
+                                    Text="Edit"
+                                    BackgroundColor="Orange"
+                                    Command="{Binding BindingContext.EditCommand, Source={x:Reference Root}}"
+                                    CommandParameter="{Binding .}"/>
+
+
                                 <SwipeItem
                                     Text="Delete"
                                     BackgroundColor="Red"
@@ -44,17 +52,17 @@
                         </SwipeView.RightItems>
 
                         <HorizontalStackLayout>
-                            <CheckBox IsChecked="{Binding IsCompleted}"/>
+                            <CheckBox IsChecked="{Binding IsCompleted}" CheckedChanged="CheckBox_CheckChanged"/>
                             <VerticalStackLayout>
                                 <Label Text="{Binding Name}" Style="{StaticResource TodoLabelStyle}" FontSize="Large" FontAttributes="Bold"/>
                                 <Label Text="{Binding Description}"  Style="{StaticResource TodoLabelStyle}"/>
                             </VerticalStackLayout>
-                            
+
                         </HorizontalStackLayout>
                     </SwipeView>
-                    
-               
-                    
+
+
+
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
