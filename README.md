@@ -41,3 +41,7 @@ A Meal Plan App. Two pages One allows users to add new meals to a plan. Other pa
   - [ ] Grab meals from page and display at top
   - [ ] Allow users to add ingredients and tag with meal
   - [ ] When meal is removed remove ingredients
+- [X] Database init
+  - [X] Meals Table
+  - [X] Ingredients Table
+  - [X] Add to ViewModel

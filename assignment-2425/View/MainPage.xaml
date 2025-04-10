@@ -4,56 +4,9 @@
              x:Class="assignment_2425.View.MainPage"
              x:Name="Root">
 
-    <ContentPage.BindingContext>
-        <viewmodels:TodoViewModel />
-    </ContentPage.BindingContext>
-
-    <ContentPage.Resources>
-        <Style x:Key="TodoLabelStyle" TargetType="Label">
-            <Style.Triggers>
-                <DataTrigger TargetType="Label"
-                             Binding="{Binding IsCompleted}"
-                             Value="True">
-                    <Setter Property="TextDecorations" Value="Strikethrough" />
-                    <Setter Property="TextColor" Value="Gray" />
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
-    </ContentPage.Resources>
-
-    
     <VerticalStackLayout>
-        
-        
-        <CollectionView ItemsSource="{Binding Todos}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <SwipeView>
-                        <SwipeView.RightItems>
-                            <SwipeItems>
-                                <SwipeItem Text="Delete"
-                               BackgroundColor="Red"
-                               Command="{Binding BindingContext.DeleteTodoCommand, Source={x:Reference Root}}"
-                               CommandParameter="{Binding .}" />
-                            </SwipeItems>
-                        </SwipeView.RightItems>
-
-                        <HorizontalStackLayout Padding="10">
-                            <CheckBox IsChecked="{Binding IsCompleted}" />
-                            <Label Text="{Binding Text}" Style="{StaticResource TodoLabelStyle}" />
-                        </HorizontalStackLayout>
-                    </SwipeView>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-        
-        
-        <VerticalStackLayout Padding="10" HorizontalOptions="End">
-            <Entry Placeholder="New Todo..."
-           Text="{Binding NewTodoText}" />
-            <Button Text="Add"
-            Command="{Binding AddTodoCommand}" />
-        </VerticalStackLayout>
-
+        <Label
+            Text="Hello Main Page"
+            Style="{StaticResource Headline}"/>
     </VerticalStackLayout>
 </ContentPage>

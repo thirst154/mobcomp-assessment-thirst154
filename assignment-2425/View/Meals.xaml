@@ -26,7 +26,7 @@
 
     <VerticalStackLayout>
 
-        <CollectionView ItemsSource="{Binding Meals}">
+        <CollectionView ItemsSource="{Binding Items}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
 
@@ -38,7 +38,7 @@
                                 <SwipeItem
                                     Text="Delete"
                                     BackgroundColor="Red"
-                                    Command="{Binding BindingContext.DeleteMealCommand, Source={x:Reference Root}}"
+                                    Command="{Binding BindingContext.DeleteCommand, Source={x:Reference Root}}"
                                     CommandParameter="{Binding .}"/>
                             </SwipeItems>
                         </SwipeView.RightItems>
@@ -62,7 +62,7 @@
         <StackLayout Padding="10">
             <Entry Placeholder="New Meal..." Text="{Binding NewMealText}" />
             <Entry Placeholder="Description" Text="{Binding NewMealDesc}" />
-            <Button Text="Add" Command="{Binding AddMealCommand}" />
+            <Button Text="Add" Command="{Binding AddCommand}" />
         </StackLayout>
 
     </VerticalStackLayout>

@@ -2,22 +2,13 @@
 
 namespace assignment_2425.Model;
 
-public class Todo : INotifyPropertyChanged
+public class Todo : ObservableObject
 {
     private bool isCompleted;
-    public string Text { get; set; }
 
-    public bool IsCompleted {
+    public bool IsCompleted
+    {
         get => isCompleted;
-        set {
-            if (isCompleted != value) { 
-                isCompleted = value;
-                OnPropertyChanged(nameof(IsCompleted));
-            }
-        }
+        set => SetProperty(ref isCompleted, value);
     }
-
-    public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string name) =>
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using assignment_2425.Repositories;
+using Microsoft.Extensions.Logging;
 
 namespace assignment_2425
 {
@@ -14,6 +15,8 @@ namespace assignment_2425
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+            builder.Services.AddSingleton<MealRepo>();
+            builder.Services.AddSingleton<IngredientRepo>();
 
 #if DEBUG
     		builder.Logging.AddDebug();
