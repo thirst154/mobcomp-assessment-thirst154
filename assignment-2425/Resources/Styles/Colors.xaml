@@ -6,9 +6,29 @@
 
     <!-- Note: For Android please see also Platforms\Android\Resources\values\colors.xml -->
 
-    <Color x:Key="Primary">#f55b72</Color>
-    <Color x:Key="PrimaryDark">#9b163c</Color>
-    <Color x:Key="PrimaryDarkText">#4a071a</Color>
+    <Color x:Key="g-10">#fafafa</Color>
+    <Color x:Key="g-50">#fafafa</Color>
+    <Color x:Key="g-100">#f4f4f5</Color>
+    <Color x:Key="g-200">#e4e4e7</Color>
+    <Color x:Key="g-300">#d4d4d8</Color>
+    <Color x:Key="g-400">#a1a1aa</Color>
+    <Color x:Key="g-500">#71717a</Color>
+    <Color x:Key="g-600">#52525b</Color>
+    <Color x:Key="g-700">#3f3f46</Color>
+    <Color x:Key="g-800">#27272a</Color>
+    <Color x:Key="g-900">#18181b</Color>
+    <Color x:Key="g-950">#09090b</Color>
+
+
+    <Color x:Key="DText">#f6f6f6</Color>
+    <Color x:Key="LText">#000000</Color>
+    <Color x:Key="DBG">#000000</Color>
+    <Color x:Key="LBG">#f6f6f6</Color>
+
+
+
+    <Color x:Key="Primary">#6ee7b7</Color>
+    <Color x:Key="PrimaryDark">#009f7c</Color>
     <Color x:Key="Secondary">#007675</Color>
     <Color x:Key="SecondaryDarkText">#003638</Color>
     <Color x:Key="Tertiary">#172746</Color>

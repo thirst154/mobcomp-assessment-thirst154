@@ -7,6 +7,7 @@ namespace assignment_2425
     {
         public static MauiApp CreateMauiApp()
         {
+
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
@@ -14,6 +15,7 @@ namespace assignment_2425
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("Inter-VariableFont.ttf", "Inter");
                 });
             builder.Services.AddSingleton<MealRepo>();
             builder.Services.AddSingleton<IngredientRepo>();

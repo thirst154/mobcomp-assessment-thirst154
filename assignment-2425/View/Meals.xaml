@@ -26,11 +26,20 @@
 
     <VerticalStackLayout>
 
+        <Label Text="Meals" Style="{StaticResource H1}" Padding="10"/>
+
         <CollectionView ItemsSource="{Binding Items}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-
-                    <SwipeView>
+                    <Border 
+                        Stroke="{AppThemeBinding Light={StaticResource g-950}, Dark={StaticResource g-800}}"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource g-950}, Dark={StaticResource g-900}}"
+                        Margin="5"
+                        Padding="5">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
+                        <SwipeView>
 
 
                         <SwipeView.RightItems>
@@ -60,6 +69,8 @@
 
                         </HorizontalStackLayout>
                     </SwipeView>
+
+                    </Border>
 
 
 
