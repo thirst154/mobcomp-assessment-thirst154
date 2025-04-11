@@ -11,11 +11,7 @@ namespace assignment_2425.View
             InitializeComponent();
 
         }
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-            await (BindingContext as HomeViewModel)?.LoadRecipesAsync();
-        }
+        
 
     }
 
