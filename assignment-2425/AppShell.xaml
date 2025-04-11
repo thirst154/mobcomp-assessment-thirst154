@@ -7,20 +7,22 @@
     xmlns:view="clr-namespace:assignment_2425.View"
     Title="assignment_2425"
     FlyoutBehavior="Flyout"
+    FlyoutBackgroundColor="{AppThemeBinding Light={StaticResource g50}, Dark={StaticResource g800}}"
     >
 
+   
 
     <Shell.FlyoutHeader>
 
         <Grid
-            BackgroundColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}"
-            HeightRequest="200">
+            BackgroundColor="{AppThemeBinding Light={StaticResource t300}, Dark={StaticResource t500}}"
+            HeightRequest="100">
             <Label Text="Menu"
                        TextColor="White"
                        FontAttributes="Bold"
-                       HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center"
-                       FontSize="30"/>
+                       FontSize="30"
+                       Padding="50, 0, 0, 0"/>
 
         </Grid>
 
@@ -28,8 +30,7 @@
 
 
     <FlyoutItem 
-        Title="Meals"
-        Icon="icon_home.png">
+        Title="Meals">
         <Tab Title="Meals">
             <ShellContent
                 Title="Meals"
@@ -39,8 +40,7 @@
         </Tab>
     </FlyoutItem>
     <FlyoutItem 
-    Title="Shopping"
-    Icon="icon_home.png">
+    Title="Shopping">
 
         <Tab Title="Shopping">
             <ShellContent
@@ -50,7 +50,7 @@
 
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="About" Icon="icon_about.png">
+    <FlyoutItem Title="About">
         <ShellContent
     Title="About"
     ContentTemplate="{DataTemplate view:AboutPage}"/>

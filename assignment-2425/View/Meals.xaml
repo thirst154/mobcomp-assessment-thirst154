@@ -26,7 +26,7 @@
 
     <VerticalStackLayout>
 
-        <Label Text="Meals" Style="{StaticResource Headline}" Padding="10"/>
+        <Label Text="Meals 🍳" Style="{StaticResource Headline}" Padding="10"/>
 
         <CollectionView ItemsSource="{Binding Items}">
             <CollectionView.ItemTemplate>
@@ -79,11 +79,20 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <StackLayout Padding="10">
-            <Entry Placeholder="New Meal..." Text="{Binding NewMealText}" />
-            <Entry Placeholder="Description" Text="{Binding NewMealDesc}" />
-            <Button Text="Add" Command="{Binding AddCommand}" />
-        </StackLayout>
-
+        <Border 
+                        Stroke="{AppThemeBinding Light={StaticResource g200}, Dark={StaticResource g800}}"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource g100}, Dark={StaticResource g900}}"
+                        Margin="5"
+                        Padding="3">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="5" />
+            </Border.StrokeShape>
+            <StackLayout Padding="10">
+                <Entry Placeholder="New Meal..." Text="{Binding NewMealText}" />
+                <Entry Placeholder="Description" Text="{Binding NewMealDesc}" />
+                <Button Text="Add" Command="{Binding AddCommand}" BackgroundColor="{AppThemeBinding Light={StaticResource g200}, Dark={StaticResource g800}}"/>
+            </StackLayout>
+        </Border>
+        
     </VerticalStackLayout>
 </ContentPage>

@@ -16,52 +16,61 @@
                      Binding="{Binding IsCompleted}"
                      Value="True">
                     <Setter Property="TextDecorations" Value="Strikethrough" />
-                    <Setter Property="TextColor" Value="Gray" />
+                    <Setter Property="TextColor" Value="{StaticResource g500}" />
                 </DataTrigger>
             </Style.Triggers>
         </Style>
     </ContentPage.Resources>
 
+
     <VerticalStackLayout>
+
+        <Label Text="Shopping 🛒" Style="{StaticResource Headline}" Padding="10"/>
 
         <CollectionView ItemsSource="{Binding Items}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-
-                    <SwipeView>
-
-
-                        <SwipeView.RightItems>
-                            <SwipeItems>
-
-                                <SwipeItem
-                                    Text="Edit"
-                                    BackgroundColor="Orange"
-                                    Command="{Binding BindingContext.EditCommand, Source={x:Reference Root}}"
-                                    CommandParameter="{Binding .}"/>
+                    <Border 
+                    Stroke="{AppThemeBinding Light={StaticResource g200}, Dark={StaticResource g800}}"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource g100}, Dark={StaticResource g900}}"
+                    Margin="5"
+                    Padding="3">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="5" />
+                        </Border.StrokeShape>
+                        <SwipeView>
 
 
-                                <SwipeItem
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+
+                                    <SwipeItem
+                                Text="Edit"
+                                BackgroundColor="{AppThemeBinding Light={StaticResource Edit}, Dark={StaticResource Edit} }"
+                                Command="{Binding BindingContext.EditCommand, Source={x:Reference Root}}"
+                                CommandParameter="{Binding .}"
+                                />
+
+
+                                    <SwipeItem
                                 Text="Delete"
-                                BackgroundColor="Red"
+                                BackgroundColor="{AppThemeBinding Light={StaticResource Warning}, Dark={StaticResource Warning} }"
                                 Command="{Binding BindingContext.DeleteCommand, Source={x:Reference Root}}"
                                 CommandParameter="{Binding .}"/>
-                                
-                                
-                            </SwipeItems>
-                            
-                            
-                        </SwipeView.RightItems>
+                                </SwipeItems>
+                            </SwipeView.RightItems>
 
-                        <HorizontalStackLayout>
-                            <CheckBox IsChecked="{Binding IsCompleted}"/>
-                            <VerticalStackLayout>
-                                <Label Text="{Binding Name}" Style="{StaticResource TodoLabelStyle}" FontSize="Large" FontAttributes="Bold"/>
-                                <Label Text="{Binding Description}"  Style="{StaticResource TodoLabelStyle}"/>
-                            </VerticalStackLayout>
+                            <HorizontalStackLayout>
+                                <CheckBox IsChecked="{Binding IsCompleted}" CheckedChanged="CheckBox_CheckChanged"/>
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding Name}" Style="{StaticResource TodoLabelStyle}" FontSize="Medium" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Description}"  Style="{StaticResource TodoLabelStyle}"/>
+                                </VerticalStackLayout>
 
-                        </HorizontalStackLayout>
-                    </SwipeView>
+                            </HorizontalStackLayout>
+                        </SwipeView>
+
+                    </Border>
 
 
 
@@ -69,14 +78,20 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <StackLayout Padding="10">
-            <Entry Placeholder="New Ingredient..." Text="{Binding NewIngText}" />
-            <Entry Placeholder="Description" Text="{Binding NewIngDesc}" />
-            <Picker Title="Select A Meal"
-                    ItemsSource="{Binding Options}"
-                    Focused="OnPickerFocused"/>
-            <Button Text="Add" Command="{Binding AddCommand}" />
-        </StackLayout>
+        <Border 
+                    Stroke="{AppThemeBinding Light={StaticResource g200}, Dark={StaticResource g800}}"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource g100}, Dark={StaticResource g900}}"
+                    Margin="5"
+                    Padding="3">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="5" />
+            </Border.StrokeShape>
+            <StackLayout Padding="10">
+                <Entry Placeholder="New Meal..." Text="{Binding NewIngText}" />
+                <Entry Placeholder="Description" Text="{Binding NewIngDesc}" />
+                <Button Text="Add" Command="{Binding AddCommand}" BackgroundColor="{AppThemeBinding Light={StaticResource g200}, Dark={StaticResource g800}}"/>
+            </StackLayout>
+        </Border>
 
     </VerticalStackLayout>
 </ContentPage>
