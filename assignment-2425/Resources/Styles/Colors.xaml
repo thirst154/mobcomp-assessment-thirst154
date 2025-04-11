@@ -6,35 +6,41 @@
 
     <!-- Note: For Android please see also Platforms\Android\Resources\values\colors.xml -->
 
-    <Color x:Key="g-10">#fafafa</Color>
-    <Color x:Key="g-50">#fafafa</Color>
-    <Color x:Key="g-100">#f4f4f5</Color>
-    <Color x:Key="g-200">#e4e4e7</Color>
-    <Color x:Key="g-300">#d4d4d8</Color>
-    <Color x:Key="g-400">#a1a1aa</Color>
-    <Color x:Key="g-500">#71717a</Color>
-    <Color x:Key="g-600">#52525b</Color>
-    <Color x:Key="g-700">#3f3f46</Color>
-    <Color x:Key="g-800">#27272a</Color>
-    <Color x:Key="g-900">#18181b</Color>
-    <Color x:Key="g-950">#09090b</Color>
+    <Color x:Key="g50">#f9fafb</Color>
+    <Color x:Key="g100">#f3f4f6</Color>
+    <Color x:Key="g200">#e5e7eb</Color>
+    <Color x:Key="g300">#d1d5db</Color>
+    <Color x:Key="g400">#9ca3af</Color>
+    <Color x:Key="g500">#6b7280</Color>
+    <Color x:Key="g600">#4b5563</Color>
+    <Color x:Key="g700">#374151</Color>
+    <Color x:Key="g800">#1f2937</Color>
+    <Color x:Key="g900">#111827</Color>
+    <Color x:Key="g950">#030712</Color>
 
+    <Color x:Key="t50">#f0fdfa</Color>
+    <Color x:Key="t100">#ccfbf1</Color>
+    <Color x:Key="t200">#99f6e4</Color>
+    <Color x:Key="t300">#5eead4</Color>
+    <Color x:Key="t400">#2dd4bf</Color>
+    <Color x:Key="t500">#14b8a6</Color>
+    <Color x:Key="t600">#0d9488</Color>
+    <Color x:Key="t700">#0f766e</Color>
+    <Color x:Key="t800">#115e59</Color>
+    <Color x:Key="t900">#134e4a</Color>
+    <Color x:Key="t950">#042f2e</Color>
 
-    <Color x:Key="DText">#f6f6f6</Color>
-    <Color x:Key="LText">#000000</Color>
-    <Color x:Key="DBG">#000000</Color>
-    <Color x:Key="LBG">#f6f6f6</Color>
+    <Color x:Key="Primary">#5eead4</Color>
+    <Color x:Key="PrimaryDark">#115e59</Color>
+    <Color x:Key="PrimaryDarkText">#042f2e</Color>
+    <Color x:Key="Secondary">#9ca3af</Color>
+    <Color x:Key="SecondaryDarkText">#111827</Color>
+    <Color x:Key="Tertiary">#2B0B98</Color>
 
+    <Color x:Key="Warning">#B82A14</Color>
+    <Color x:Key="Edit">#B86314</Color>
 
-
-    <Color x:Key="Primary">#6ee7b7</Color>
-    <Color x:Key="PrimaryDark">#009f7c</Color>
-    <Color x:Key="Secondary">#007675</Color>
-    <Color x:Key="SecondaryDarkText">#003638</Color>
-    <Color x:Key="Tertiary">#172746</Color>
-    <Color x:Key="TertiaryLigh">#244884</Color>
-
-    <Color x:Key="White">#fffefe</Color>
+    <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
     <Color x:Key="Magenta">#D600AA</Color>
     <Color x:Key="MidnightBlue">#190649</Color>

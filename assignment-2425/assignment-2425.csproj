@@ -57,6 +57,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiCss Remove="Resources\Styles\styles.css" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\Images\ic--round-home.png" />
 	  <None Remove="Resources\Images\ic-baseline-help.png" />
 	</ItemGroup>

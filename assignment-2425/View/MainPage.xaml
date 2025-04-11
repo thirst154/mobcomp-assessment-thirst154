@@ -6,7 +6,9 @@
 
     <VerticalStackLayout>
         <Label
-            Text="Hello Main Page"
-            Style="{StaticResource Headline}"/>
+            Text="Welcome to the Meal Plan App"
+            Style="{StaticResource Headline}"
+            VerticalTextAlignment="Center"
+            HorizontalOptions="Center"/>
     </VerticalStackLayout>
 </ContentPage>
