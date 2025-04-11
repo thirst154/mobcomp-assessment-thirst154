@@ -1,18 +1,14 @@
 ﻿using assignment_2425.Model;
 using assignment_2425.Repositories;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
 using System.Net.Http.Json;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace assignment_2425.ViewModel;
 
-public class HomeViewModel : ObservableObject { 
+public class HomeViewModel : ObservableObject
+{
 
     public ObservableCollection<Recipe> Recipes { get; set; }
     private IngredientRepo IngredientRepo { get; set; } = new IngredientRepo();
@@ -23,7 +19,7 @@ public class HomeViewModel : ObservableObject {
     public HomeViewModel()
     {
         Recipes = new ObservableCollection<Recipe> {
-            new Recipe { 
+            new Recipe {
                 Name="Pizza",
                 Description="Margherita Pizza Prep: 25mins",
                 ImageUrl="Resources/Images/pizza.jpg",
@@ -53,7 +49,7 @@ public class HomeViewModel : ObservableObject {
 
     private async void AddCardAsync(Recipe recipe)
     {
-        
+
 
         bool confirmAdd = await Application.Current.MainPage.DisplayAlert("Confirm Add", "Are you sure you want to add this item?", "Yes", "No");
         if (confirmAdd)
@@ -82,7 +78,7 @@ public class HomeViewModel : ObservableObject {
         catch (Exception ex)
         {
             Debug.WriteLine($"Error fetching recipes: {ex.Message}");
-            Shell.Current.DisplayAlert("Error", "Failed to load recipes \n Error:"+ex.Message, "OK");
+            Shell.Current.DisplayAlert("Error", "Failed to load recipes \n Error:" + ex.Message, "OK");
         }
     }
 

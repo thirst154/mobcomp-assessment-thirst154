@@ -1,10 +1,5 @@
 ﻿using assignment_2425.Repositories;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace assignment_2425.ViewModel;
@@ -18,7 +13,8 @@ public abstract partial class BaseCrudViewModel<T> : ObservableObject where T : 
     public ICommand AddCommand { get; }
     public ICommand DeleteCommand { get; }
 
-    public BaseCrudViewModel(BaseRepository<T> repository) { 
+    public BaseCrudViewModel(BaseRepository<T> repository)
+    {
         repo = repository;
         Items = new ObservableCollection<T>(repo.GetAll());
 
@@ -29,7 +25,7 @@ public abstract partial class BaseCrudViewModel<T> : ObservableObject where T : 
     protected abstract T CreateNewItem();
 
     protected virtual void AddItem()
-    { 
+    {
         var item = CreateNewItem();
         if (item != null)
         {
@@ -38,7 +34,7 @@ public abstract partial class BaseCrudViewModel<T> : ObservableObject where T : 
         }
     }
 
-    
+
 
 
     protected virtual async void DeleteItem(T item)
@@ -59,7 +55,8 @@ public abstract partial class BaseCrudViewModel<T> : ObservableObject where T : 
 
 
 
-    public void Refresh() {
+    public void Refresh()
+    {
         Items.Clear();
         foreach (var item in repo.GetAll())
             Items.Add(item);

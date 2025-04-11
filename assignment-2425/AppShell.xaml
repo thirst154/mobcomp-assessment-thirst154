@@ -29,14 +29,17 @@
     </Shell.FlyoutHeader>
 
 
-    <FlyoutItem Title="Home">
-                <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate view:MainPage}"/>
+    <FlyoutItem Title="Home"
+                Icon="icon_home.png">
+        <ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate view:MainPage}"
+        />
     </FlyoutItem>
 
     <FlyoutItem 
-        Title="Meals">
+        Title="Meals"
+        Icon="cooking.png">
         <Tab Title="Meals">
             <ShellContent
                 Title="Meals"
@@ -46,7 +49,8 @@
         </Tab>
     </FlyoutItem>
     <FlyoutItem 
-    Title="Shopping">
+        Title="Shopping"
+        Icon="shopping.png">
 
         <Tab Title="Shopping">
             <ShellContent
@@ -56,7 +60,8 @@
 
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="About">
+    <FlyoutItem Title="About"
+                Icon="icon_about.png">
         <ShellContent
     Title="About"
     ContentTemplate="{DataTemplate view:AboutPage}"/>

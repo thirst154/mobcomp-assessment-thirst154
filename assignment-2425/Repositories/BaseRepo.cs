@@ -1,7 +1,4 @@
 ﻿using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace assignment_2425.Repositories;
 
@@ -64,12 +61,13 @@ public abstract class BaseRepository<T> where T : new()
 
             return connection.Table<T>().FirstOrDefault(x => (string)x.GetType().GetProperty("Name").GetValue(x) == name);
         }
-        catch (Exception ex) {
+        catch (Exception ex)
+        {
             StatusMessage = $"Error: {ex.Message}";
         }
 
         return default;
-    
+
     }
 
     public void AddOrUpdate(T item)
