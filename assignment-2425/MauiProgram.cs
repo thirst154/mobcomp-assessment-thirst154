@@ -21,7 +21,7 @@ namespace assignment_2425
             builder.Services.AddSingleton<IngredientRepo>();
 
 #if DEBUG
-            builder.Logging.AddDebug();
+    		builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

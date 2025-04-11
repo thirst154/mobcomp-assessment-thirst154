@@ -1,5 +1,6 @@
 ﻿using assignment_2425.Model;
 using assignment_2425.Repositories;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace assignment_2425.ViewModel;
@@ -21,11 +22,10 @@ public partial class MealsViewModel : BaseCrudViewModel<Meal>
         set => SetProperty(ref newMealDesc, value);
     }
 
-
+    
 
     public ICommand EditCommand { get; }
-    public MealsViewModel() : base(new MealRepo())
-    {
+    public MealsViewModel() : base(new MealRepo()) {
 
         EditCommand = new Command<Meal>(EditItem);
     }

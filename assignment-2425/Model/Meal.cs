@@ -1,4 +1,11 @@
-﻿using SQLite;
+﻿using Microsoft.VisualBasic;
+using SQLite;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace assignment_2425.Model;
 

@@ -1,4 +1,6 @@
-﻿using assignment_2425.ViewModel;
+﻿using assignment_2425.Model;
+using assignment_2425.ViewModel;
+using System.Collections.ObjectModel;
 
 namespace assignment_2425.View
 {
@@ -9,7 +11,7 @@ namespace assignment_2425.View
         public MainPage()
         {
             InitializeComponent();
-
+            
         }
         
 

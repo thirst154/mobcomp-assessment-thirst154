@@ -4,7 +4,8 @@
              xmlns:viewmodels="clr-namespace:assignment_2425.ViewModel"
              x:Class="assignment_2425.View.Shopping"
              x:Name="Root"
-             Title="Shopping">
+             Title="Shopping"
+             xmlns:local="clr-namespace:assignment_2425.Converters">
     <ContentPage.BindingContext>
         <viewmodels:ShoppingViewModel />
     </ContentPage.BindingContext>
@@ -20,6 +21,7 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+        <local:NullToBoolConverter x:Key="NullToBoolConverter"/>
     </ContentPage.Resources>
 
 
@@ -87,7 +89,7 @@
                 <RoundRectangle CornerRadius="5" />
             </Border.StrokeShape>
             <StackLayout Padding="10">
-                <Entry Placeholder="New Meal..." Text="{Binding NewIngText}" />
+                <Entry Placeholder="New Ingredient..." Text="{Binding NewIngText}" />
                 <Entry Placeholder="Description" Text="{Binding NewIngDesc}" />
                 <Button Text="Add" Command="{Binding AddCommand}" BackgroundColor="{AppThemeBinding Light={StaticResource g200}, Dark={StaticResource g800}}"/>
             </StackLayout>

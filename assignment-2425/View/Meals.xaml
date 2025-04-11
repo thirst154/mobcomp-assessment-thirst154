@@ -4,7 +4,8 @@
              xmlns:viewmodels="clr-namespace:assignment_2425.ViewModel"
              x:Class="assignment_2425.View.Meals"
              x:Name="Root"
-             Title="Meals">
+             Title="Meals"
+             xmlns:local="clr-namespace:assignment_2425.Converters">
 
     <ContentPage.BindingContext>
         <viewmodels:MealsViewModel />
@@ -21,6 +22,7 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+        <local:NullToBoolConverter x:Key="NullToBoolConverter"/>
     </ContentPage.Resources>
 
 

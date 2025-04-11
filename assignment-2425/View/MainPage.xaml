@@ -20,17 +20,15 @@
             <Label Text="Welcome!"
                Style="{StaticResource Headline}"
                Padding="20,10"/>
-            <HorizontalStackLayout>
-                <Label Text="to the Recipe App 🥘 "
-                   Style="{StaticResource SubHeadline}"
-                   Padding="20,10"/>
-            </HorizontalStackLayout>
-            
+
+            <Label Text="to the Recipe App"
+               Style="{StaticResource SubHeadline}"
+               Padding="20,10"/>
         </VerticalStackLayout>
 
 
         <CollectionView Grid.Row="1"
-                        ItemsSource="{Binding Items}"
+                        ItemsSource="{Binding Recipes}"
                         ItemsLayout="VerticalList"
                         Margin="10">
             
@@ -72,19 +70,6 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <Border 
-            Stroke="{AppThemeBinding Light={StaticResource g200}, Dark={StaticResource g800}}"
-            BackgroundColor="{AppThemeBinding Light={StaticResource g100}, Dark={StaticResource g900}}"
-            Margin="5"
-            Padding="3">
-            <Border.StrokeShape>
-                <RoundRectangle CornerRadius="5" />
-            </Border.StrokeShape>
-            <StackLayout Padding="10">
-                <Entry Placeholder="New Meal..." Text="{Binding NewRecText}" />
-                <Entry Placeholder="Description" Text="{Binding NewRecDesc}" />
-                <Button Text="Add" Command="{Binding AddCommand}" BackgroundColor="{AppThemeBinding Light={StaticResource g200}, Dark={StaticResource g800}}"/>
-            </StackLayout>
-        </Border>
+       
     </Grid>
 </ContentPage>

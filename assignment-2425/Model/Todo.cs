@@ -1,4 +1,6 @@
-﻿namespace assignment_2425.Model;
+﻿using System.ComponentModel;
+
+namespace assignment_2425.Model;
 
 public class Todo : ObservableObject
 {

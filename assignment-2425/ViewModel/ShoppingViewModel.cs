@@ -1,5 +1,11 @@
 ﻿using assignment_2425.Model;
 using assignment_2425.Repositories;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace assignment_2425.ViewModel;
@@ -32,8 +38,7 @@ public partial class ShoppingViewModel : BaseCrudViewModel<Ingredient>
 
     public ICommand EditCommand { get; }
 
-    public ShoppingViewModel() : base(new IngredientRepo())
-    {
+    public ShoppingViewModel() : base(new IngredientRepo()) {
 
         Options = new List<String>();
         RefreshPickerOptions();
