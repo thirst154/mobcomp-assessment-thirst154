@@ -88,9 +88,9 @@
                 <RoundRectangle CornerRadius="5" />
             </Border.StrokeShape>
             <StackLayout Padding="10">
-                <Entry Placeholder="New Meal..." Text="{Binding NewMealText}" />
+                <Entry Placeholder="New Meal..." Text="{Binding NewMealText}"/>
                 <Entry Placeholder="Description" Text="{Binding NewMealDesc}" />
-                <Button Text="Add" Command="{Binding AddCommand}" BackgroundColor="{AppThemeBinding Light={StaticResource g200}, Dark={StaticResource g800}}"/>
+                <Button Text="Add" Command="{Binding AddCommand}" BackgroundColor="{AppThemeBinding Light={StaticResource g100}, Dark={StaticResource g800}}"/>
             </StackLayout>
         </Border>
         

@@ -1,4 +1,5 @@
 using assignment_2425.Repositories;
+using assignment_2425.ViewModel;
 
 namespace assignment_2425.View;
 
@@ -19,4 +20,16 @@ public partial class Meals : ContentPage
 			mealRepo.AddOrUpdate(meal);
 		}
 	}
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        (BindingContext as MealsViewModel)?.StartListeningToShakes();
+    }
+
+    protected override void OnDisappearing()
+    {
+        (BindingContext as MealsViewModel)?.StopListeningToShakes();
+        base.OnDisappearing();
+    }
+
 }

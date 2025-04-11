@@ -28,5 +28,17 @@ public partial class Shopping : ContentPage
         (sender as Picker).ItemsSource = viewModel?.Options;
     }
 
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        (BindingContext as ShoppingViewModel)?.StartListeningToShakes();
+    }
+
+    protected override void OnDisappearing()
+    {
+        (BindingContext as ShoppingViewModel)?.StopListeningToShakes();
+        base.OnDisappearing();
+    }
+
 
 }

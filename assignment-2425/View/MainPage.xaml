@@ -2,13 +2,71 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:assignment_2425.ViewModel"
              x:Class="assignment_2425.View.MainPage"
-             x:Name="Root">
+             x:Name="Root"
+             xmlns:local="clr-namespace:assignment_2425.Converters">
 
-    <VerticalStackLayout>
-        <Label
-            Text="Welcome to the Meal Plan App"
-            Style="{StaticResource Headline}"
-            VerticalTextAlignment="Center"
-            HorizontalOptions="Center"/>
-    </VerticalStackLayout>
+    <ContentPage.BindingContext>
+        <viewmodels:HomeViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <local:NullToBoolConverter x:Key="NullToBoolConverter"/>
+    </ContentPage.Resources>
+
+
+    <Grid RowDefinitions="Auto, *">
+        <VerticalStackLayout
+            Grid.Row="0">
+            <Label Text="Welcome!"
+               Style="{StaticResource Headline}"
+               Padding="20,10"/>
+
+            <Label Text="to the Recipe App"
+               Style="{StaticResource SubHeadline}"
+               Padding="20,10"/>
+        </VerticalStackLayout>
+
+
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding Recipes}"
+                        ItemsLayout="VerticalList"
+                        Margin="10">
+            
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame CornerRadius="5" Padding="0" Margin="0,10" HasShadow="True">
+                        <Grid>
+                            <Image Source="{Binding ImageUrl}" Aspect="AspectFill" />
+                            <StackLayout VerticalOptions="End"
+                                 BackgroundColor="#80000000"
+                                 Padding="12"
+                                 Spacing="4">
+                                <Label Text="{Binding Name}"
+                                   TextColor="White"
+                                   FontSize="24"
+                                   FontAttributes="Bold" />
+
+                                <Label Text="{Binding Description}"
+                                   TextColor="White"
+                                   FontSize="16"
+                                   IsVisible="{Binding Description, Converter={StaticResource NullToBoolConverter}}" />
+                            </StackLayout>
+
+                            <Button Text="+"
+                                CornerRadius="5"
+                                Padding="8,4"
+                                BackgroundColor="{StaticResource t400}"
+                                TextColor="White"
+                                FontAttributes="Bold"
+                                HorizontalOptions="End"
+                                VerticalOptions="End"
+                                Margin="12"
+                                Command="{Binding BindingContext.AddCardCommand, Source={x:Reference Root}}"
+                                CommandParameter="{Binding .}" />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>

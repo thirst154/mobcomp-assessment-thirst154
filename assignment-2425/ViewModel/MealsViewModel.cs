@@ -24,7 +24,6 @@ public partial class MealsViewModel : BaseCrudViewModel<Meal>
 
     
 
-
     public ICommand EditCommand { get; }
     public MealsViewModel() : base(new MealRepo()) {
 
@@ -63,7 +62,42 @@ public partial class MealsViewModel : BaseCrudViewModel<Meal>
         }
     }
 
-    
+    public void StartListeningToShakes()
+    {
+        if (!Accelerometer.IsMonitoring)
+        {
+            Accelerometer.ShakeDetected += OnShakeDetected;
+            Accelerometer.Start(SensorSpeed.Game);
+        }
+    }
 
-    
+    public void StopListeningToShakes()
+    {
+        if (Accelerometer.IsMonitoring)
+        {
+            Accelerometer.ShakeDetected -= OnShakeDetected;
+            Accelerometer.Stop();
+        }
+    }
+
+    private void OnShakeDetected(object? sender, EventArgs e)
+    {
+        MainThread.BeginInvokeOnMainThread(() =>
+        {
+            foreach (var meal in repo.GetAll())
+            {
+                if (!meal.IsCompleted)
+                {
+                    meal.IsCompleted = true;
+                    repo.AddOrUpdate(meal);
+                }
+            }
+            Shell.Current.DisplayAlert("Meals Completed", "All meals marked as done!", "OK");
+            Refresh();
+        });
+    }
+
+
+
+
 }

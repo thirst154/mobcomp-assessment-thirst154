@@ -87,4 +87,41 @@ public partial class ShoppingViewModel : BaseCrudViewModel<Ingredient>
             Options.Add(item.Name);
         }
     }
+
+    public void StartListeningToShakes()
+    {
+        if (!Accelerometer.IsMonitoring)
+        {
+            Accelerometer.ShakeDetected += OnShakeDetected;
+            Accelerometer.Start(SensorSpeed.Game);
+        }
+    }
+
+    public void StopListeningToShakes()
+    {
+        if (Accelerometer.IsMonitoring)
+        {
+            Accelerometer.ShakeDetected -= OnShakeDetected;
+            Accelerometer.Stop();
+        }
+    }
+
+    private void OnShakeDetected(object? sender, EventArgs e)
+    {
+        Accelerometer.Stop();
+        MainThread.BeginInvokeOnMainThread(() =>
+        {
+            foreach (var meal in repo.GetAll())
+            {
+                if (!meal.IsCompleted)
+                {
+                    meal.IsCompleted = true;
+                    repo.AddOrUpdate(meal);
+                }
+            }
+            Shell.Current.DisplayAlert("Meals Completed", "All meals marked as done!", "OK");
+            Accelerometer.Start(SensorSpeed.Game);
+            Refresh();
+        });
+    }
 }

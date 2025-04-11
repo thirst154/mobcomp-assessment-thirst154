@@ -29,6 +29,12 @@
     </Shell.FlyoutHeader>
 
 
+    <FlyoutItem Title="Home">
+                <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate view:MainPage}"/>
+    </FlyoutItem>
+
     <FlyoutItem 
         Title="Meals">
         <Tab Title="Meals">
