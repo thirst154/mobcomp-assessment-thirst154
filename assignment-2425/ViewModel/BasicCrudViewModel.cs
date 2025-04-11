@@ -59,7 +59,7 @@ public abstract partial class BaseCrudViewModel<T> : ObservableObject where T : 
 
 
 
-    protected void Refresh() {
+    public void Refresh() {
         Items.Clear();
         foreach (var item in repo.GetAll())
             Items.Add(item);

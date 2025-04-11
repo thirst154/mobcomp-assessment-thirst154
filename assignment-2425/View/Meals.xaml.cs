@@ -24,6 +24,7 @@ public partial class Meals : ContentPage
     {
         base.OnAppearing();
         (BindingContext as MealsViewModel)?.StartListeningToShakes();
+        (BindingContext as MealsViewModel)?.Refresh();
     }
 
     protected override void OnDisappearing()
@@ -31,5 +32,7 @@ public partial class Meals : ContentPage
         (BindingContext as MealsViewModel)?.StopListeningToShakes();
         base.OnDisappearing();
     }
+
+    
 
 }

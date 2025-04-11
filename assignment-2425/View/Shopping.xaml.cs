@@ -32,6 +32,7 @@ public partial class Shopping : ContentPage
     {
         base.OnAppearing();
         (BindingContext as ShoppingViewModel)?.StartListeningToShakes();
+        (BindingContext as ShoppingViewModel)?.Refresh();
     }
 
     protected override void OnDisappearing()

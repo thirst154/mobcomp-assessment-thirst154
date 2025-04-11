@@ -22,4 +22,6 @@ internal class Constants {
             return Path.Combine(FileSystem.AppDataDirectory, DBFileName);
         }
     }
+
+    public const string RecipeURL = "https://localhost:8080/recipes";
 }
