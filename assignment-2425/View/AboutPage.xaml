@@ -3,11 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="assignment_2425.View.AboutPage"
              Title="AboutPage">
-    <VerticalStackLayout>
+    <VerticalStackLayout
+        Padding="10">
         <Label 
             Text="About"
-            Style="{StaticResource Headline}"
+            Style="{StaticResource SubHeadline}"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            />
+
+        <Label
+            Text="This is an app developed by Thomas Hirst (22504261) as part of a University Assignment. The app allows users to plan meals and shopping thoughout a week"
+            />
     </VerticalStackLayout>
 </ContentPage>

@@ -19,7 +19,7 @@ A Meal Plan App. Two pages One allows users to add new meals to a plan. Other pa
 
 ## Todo
 
-- [ ] Flyout Menu
+- [X] Flyout Menu
   - [x] Test Items w/ Icons
   - [X] Header
   - [ ] Footer
@@ -29,18 +29,18 @@ A Meal Plan App. Two pages One allows users to add new meals to a plan. Other pa
   - [X] Item check off tick box
   - [X] Allow users to add new todos
   - [X] allow users to remove items
-  - [ ] add warning when users try to remove items
-  - [ ] Style Page
-- [ ] Add new font (Barlow?)
-- [ ] Decide some colors and styles
+  - [X] add warning when users try to remove items
+  - [X] Style Page
+- [X] Add new font (Barlow?)
+- [X] Decide some colors and styles
 - [X] Add Meals Page
   - [X] Allow users to add meals
-  - [ ] Allow users to edit meals
+  - [X] Allow users to edit meals
   - [X] Remove meals
-- [ ] Add Shopping page
-  - [ ] Grab meals from page and display at top
-  - [ ] Allow users to add ingredients and tag with meal
-  - [ ] When meal is removed remove ingredients
+- [X] Add Shopping page
+  - [X] Grab meals from page and display at top
+  - [X] Allow users to add ingredients and tag with meal
+  - [X] When meal is removed remove ingredients
 - [X] Database init
   - [X] Meals Table
   - [X] Ingredients Table

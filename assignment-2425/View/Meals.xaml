@@ -18,7 +18,7 @@
                          Binding="{Binding IsCompleted}"
                          Value="True">
                     <Setter Property="TextDecorations" Value="Strikethrough" />
-                    <Setter Property="TextColor" Value="{StaticResource g500}" />
+                    <Setter Property="TextColor" Value="{StaticResource g200}" />
                 </DataTrigger>
             </Style.Triggers>
         </Style>
@@ -84,9 +84,10 @@
                                             <Label Text="{Binding Name}"
                                                Style="{StaticResource TodoLabelStyle}"
                                                FontSize="Medium"
+                                               TextColor="{StaticResource g50}"
                                                FontAttributes="Bold" />
 
-                                            <Label Text="{Binding Description}" Style="{StaticResource TodoLabelStyle}" />
+                                            <Label Text="{Binding Description}" TextColor="{StaticResource g50}" Style="{StaticResource TodoLabelStyle}" />
                                         </VerticalStackLayout>
 
                                         <Button Text="📷"

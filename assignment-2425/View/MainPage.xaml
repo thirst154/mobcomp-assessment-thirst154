@@ -21,7 +21,7 @@
                Style="{StaticResource Headline}"
                Padding="20,10"/>
 
-            <Label Text="to the Recipe App"
+            <Label Text="to the Food Plan App"
                Style="{StaticResource SubHeadline}"
                Padding="20,10"/>
         </VerticalStackLayout>
