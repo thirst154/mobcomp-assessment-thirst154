@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,5 +19,8 @@ public class Meal : Todo
     public string Name { get; set; }
     [MaxLength(200)]
     public string? Description { get; set; }
+    [Column("imagepath")]
+    public string? ImagePath { get; set; }
+
 
 }

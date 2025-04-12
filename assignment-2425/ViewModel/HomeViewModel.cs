@@ -54,7 +54,7 @@ public class HomeViewModel : ObservableObject
         bool confirmAdd = await Application.Current.MainPage.DisplayAlert("Confirm Add", "Are you sure you want to add this item?", "Yes", "No");
         if (confirmAdd)
         {
-            MealRepo.Add(new Meal { Name = recipe.Name, Description = recipe.Description });
+            MealRepo.Add(new Meal { Name = recipe.Name, Description = recipe.Description, ImagePath=recipe.ImageUrl });
             foreach (var ingredient in recipe.Ingredients)
             {
                 IngredientRepo.Add(new Ingredient { Name = ingredient.Name, Description = ingredient.Description });

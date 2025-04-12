@@ -26,75 +26,103 @@
     </ContentPage.Resources>
 
 
-    <VerticalStackLayout>
 
-        <Label Text="Meals 🍳" Style="{StaticResource Headline}" Padding="10"/>
+    <ScrollView>
+        <VerticalStackLayout>
 
-        <CollectionView ItemsSource="{Binding Items}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Border 
-                        Stroke="{AppThemeBinding Light={StaticResource g200}, Dark={StaticResource g800}}"
-                        BackgroundColor="{AppThemeBinding Light={StaticResource g100}, Dark={StaticResource g900}}"
-                        Margin="5"
-                        Padding="3">
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="5" />
-                        </Border.StrokeShape>
-                        <SwipeView>
+            <Label Text="Meals 🍳" Style="{StaticResource Headline}" Padding="10"/>
 
-
-                        <SwipeView.RightItems>
-                            <SwipeItems>
-
-                                <SwipeItem
-                                    Text="Edit"
-                                    BackgroundColor="{AppThemeBinding Light={StaticResource Edit}, Dark={StaticResource Edit} }"
-                                    Command="{Binding BindingContext.EditCommand, Source={x:Reference Root}}"
-                                    CommandParameter="{Binding .}"
-                                    />
+            <CollectionView ItemsSource="{Binding Items}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border 
+                            Stroke="{AppThemeBinding Light={StaticResource g200}, Dark={StaticResource g800}}"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource g100}, Dark={StaticResource g900}}"
+                            Margin="5"
+                            Padding="3">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="5" />
+                            </Border.StrokeShape>
+                            <SwipeView>
 
 
-                                <SwipeItem
-                                    Text="Delete"
-                                    BackgroundColor="{AppThemeBinding Light={StaticResource Warning}, Dark={StaticResource Warning} }"
-                                    Command="{Binding BindingContext.DeleteCommand, Source={x:Reference Root}}"
-                                    CommandParameter="{Binding .}"/>
-                            </SwipeItems>
-                        </SwipeView.RightItems>
+                            <SwipeView.RightItems>
+                                <SwipeItems>
 
-                        <HorizontalStackLayout>
-                            <CheckBox IsChecked="{Binding IsCompleted}" CheckedChanged="CheckBox_CheckChanged"/>
-                            <VerticalStackLayout>
-                                <Label Text="{Binding Name}" Style="{StaticResource TodoLabelStyle}" FontSize="Medium" FontAttributes="Bold"/>
-                                <Label Text="{Binding Description}"  Style="{StaticResource TodoLabelStyle}"/>
-                            </VerticalStackLayout>
-
-                        </HorizontalStackLayout>
-                    </SwipeView>
-
-                    </Border>
+                                    <SwipeItem
+                                        Text="Edit"
+                                        BackgroundColor="{AppThemeBinding Light={StaticResource Edit}, Dark={StaticResource Edit} }"
+                                        Command="{Binding BindingContext.EditCommand, Source={x:Reference Root}}"
+                                        CommandParameter="{Binding .}"
+                                        />
 
 
+                                    <SwipeItem
+                                        Text="Delete"
+                                        BackgroundColor="{AppThemeBinding Light={StaticResource Warning}, Dark={StaticResource Warning} }"
+                                        Command="{Binding BindingContext.DeleteCommand, Source={x:Reference Root}}"
+                                        CommandParameter="{Binding .}"/>
+                                </SwipeItems>
+                            </SwipeView.RightItems>
 
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                                <Grid>
+                                    <!-- Background image -->
+                                    <Image Source="{Binding ImagePath}"
+                                        Aspect="AspectFill"
+                                        HeightRequest="200" />
 
-        <Border 
-                        Stroke="{AppThemeBinding Light={StaticResource g200}, Dark={StaticResource g800}}"
-                        BackgroundColor="{AppThemeBinding Light={StaticResource g100}, Dark={StaticResource g900}}"
-                        Margin="5"
-                        Padding="3">
-            <Border.StrokeShape>
-                <RoundRectangle CornerRadius="5" />
-            </Border.StrokeShape>
-            <StackLayout Padding="10">
-                <Entry Placeholder="New Meal..." Text="{Binding NewMealText}"/>
-                <Entry Placeholder="Description" Text="{Binding NewMealDesc}" />
-                <Button Text="Add" Command="{Binding AddCommand}" BackgroundColor="{AppThemeBinding Light={StaticResource g100}, Dark={StaticResource g800}}"/>
-            </StackLayout>
-        </Border>
+                                    <!-- Overlay content at the bottom -->
+                                    <HorizontalStackLayout
+                                        VerticalOptions="End"
+                                        Padding="10"
+                                        Spacing="10"
+                                        BackgroundColor="#80000000">
+
+                                        <CheckBox IsChecked="{Binding IsCompleted}" CheckedChanged="CheckBox_CheckChanged" />
+
+                                        <VerticalStackLayout>
+                                            <Label Text="{Binding Name}"
+                                               Style="{StaticResource TodoLabelStyle}"
+                                               FontSize="Medium"
+                                               FontAttributes="Bold" />
+
+                                            <Label Text="{Binding Description}" Style="{StaticResource TodoLabelStyle}" />
+                                        </VerticalStackLayout>
+
+                                        <Button Text="📷"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="Center"
+                                            Background="{AppThemeBinding Light={StaticResource g100}, Dark={StaticResource g800}}"
+                                            Margin="10,0,0,0"
+                                            Command="{Binding BindingContext.AttachImageCommand, Source={x:Reference Root}}"
+                                            CommandParameter="{Binding .}" />
+                                    </HorizontalStackLayout>
+                                </Grid>
+                            </SwipeView>
+
+                        </Border>
+
+
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Border 
+                            Stroke="{AppThemeBinding Light={StaticResource g200}, Dark={StaticResource g800}}"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource g100}, Dark={StaticResource g900}}"
+                            Margin="5"
+                            Padding="3">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="5" />
+                </Border.StrokeShape>
+                <StackLayout Padding="10">
+                    <Entry Placeholder="New Meal..." Text="{Binding NewMealText}"/>
+                    <Entry Placeholder="Description" Text="{Binding NewMealDesc}" />
+                    <Button Text="Add" Command="{Binding AddCommand}" BackgroundColor="{AppThemeBinding Light={StaticResource g100}, Dark={StaticResource g800}}"/>
+                </StackLayout>
+            </Border>
         
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
